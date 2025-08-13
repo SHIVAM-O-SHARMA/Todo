@@ -38,7 +38,7 @@ try {
   if(!user){return res.status(400).json({msg:'❌user does not exist!'})};
 
   const isMatch= await bcrypt.compare(password, user.password);
-  if(!isMatch){return res.status(400).json({msg:'invalid credentials!'})};
+  if(!isMatch){return res.status(400).json({msg:'invalid credentials'})};
   
   const payload= { userId: user._id, email: user.email };
   const token= jwt.sign(
